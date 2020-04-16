@@ -4,7 +4,7 @@ import pt from 'date-fns/locale/pt';
 import User from '../models/User';
 import File from '../models/File';
 import Appointment from '../models/Appointment';
-import Notificantion from '../schemas/Notificantion';
+import Notification from '../schemas/Notification';
 
 import CancellationMail from '../jobs/CancellationMail';
 import Queue from '../../lib/Queue';
@@ -109,7 +109,7 @@ class AppointmentController {
       { locale: pt }
     );
 
-    await Notificantion.create({
+    await Notification.create({
       content: `Novo agendamento de ${user.name} para ${formattedDate} `,
       user: provider_id,
     });
